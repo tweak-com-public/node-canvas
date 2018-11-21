@@ -49,7 +49,7 @@ class Backend : public Nan::ObjectWrap
       return this->width;
     }
     virtual void setWidth(double width_) {
-      this._width = width_;
+      this->width = width_;
       this->recreateSurface();
     }
 

@@ -62,21 +62,21 @@ cairo_surface_t* ImageBackend::recreateSurface()
 	return createSurface();
 }
 
-int Backend::getWidth()
+double ImageBackend::getWidth()
 {
-  return this->width;
+  return static_cast<double>(this->width);
 }
-void Backend::setWidth(double width_)
+void ImageBackend::setWidth(double width_)
 {
   this->width = static_cast<int>(width_);
   this->recreateSurface();
 }
 
-int Backend::getHeight()
+double ImageBackend::getHeight()
 {
-  return this->height;
+  return static_cast<double>(this->height);
 }
-void Backend::setHeight(double height_)
+void ImageBackend::setHeight(double height_)
 {
   this->height = static_cast<int>(height_);
   this->recreateSurface();
