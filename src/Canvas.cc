@@ -302,7 +302,7 @@ static void parseJPEGArgs(Local<Value> arg, JpegClosure& jpegargs) {
 static uint32_t getSafeBufSize(Canvas* canvas) {
   // Don't allow the buffer size to exceed the size of the canvas (#674)
   // TODO not sure if this is really correct, but it fixed #674
-  return min(canvas->getWidth() * canvas->getHeight() * 4, static_cast<int>(PAGE_SIZE));
+  return min(static_cast<int>(canvas->getWidth()) * static_cast<int>(canvas->getHeight()) * 4, static_cast<int>(PAGE_SIZE));
 }
 
 /*
