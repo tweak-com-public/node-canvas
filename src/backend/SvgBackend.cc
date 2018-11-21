@@ -10,7 +10,7 @@
 
 using namespace v8;
 
-SvgBackend::SvgBackend(int width, int height)
+SvgBackend::SvgBackend(double width, double height)
   : Backend("svg", width, height) {
   createSurface();
 }
@@ -21,7 +21,7 @@ SvgBackend::~SvgBackend() {
   destroySurface();
 }
 
-Backend *SvgBackend::construct(int width, int height){
+Backend *SvgBackend::construct(double width, double height){
   return new SvgBackend(width, height);
 }
 

@@ -10,7 +10,7 @@
 
 using namespace v8;
 
-PdfBackend::PdfBackend(int width, int height)
+PdfBackend::PdfBackend(double width, double height)
   : Backend("pdf", width, height) {
   createSurface();
 }
@@ -21,7 +21,7 @@ PdfBackend::~PdfBackend() {
   destroySurface();
 }
 
-Backend *PdfBackend::construct(int width, int height){
+Backend *PdfBackend::construct(double width, double height){
   return new PdfBackend(width, height);
 }
 

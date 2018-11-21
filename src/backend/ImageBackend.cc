@@ -2,8 +2,8 @@
 
 using namespace v8;
 
-ImageBackend::ImageBackend(int width, int height)
-	: Backend("image", width, height)
+ImageBackend::ImageBackend(double width, double height)
+	: Backend("image", static_cast<int>(width), static_cast<int>(height))
 	{}
 
 ImageBackend::~ImageBackend()
@@ -14,8 +14,8 @@ ImageBackend::~ImageBackend()
     }
 }
 
-Backend *ImageBackend::construct(int width, int height){
-  return new ImageBackend(width, height);
+Backend *ImageBackend::construct(double width, double height){
+  return new ImageBackend(static_cast<int>(width), static_cast<int>(height));
 }
 
 // This returns an approximate value only, suitable for Nan::AdjustExternalMemory.
@@ -60,6 +60,26 @@ cairo_surface_t* ImageBackend::recreateSurface()
 	}
 
 	return createSurface();
+}
+
+int Backend::getWidth()
+{
+  return this->width;
+}
+void Backend::setWidth(double width_)
+{
+  this->width = static_cast<int>(width_);
+  this->recreateSurface();
+}
+
+int Backend::getHeight()
+{
+  return this->height;
+}
+void Backend::setHeight(double height_)
+{
+  this->height = static_cast<int>(height_);
+  this->recreateSurface();
 }
 
 cairo_format_t ImageBackend::getFormat() {

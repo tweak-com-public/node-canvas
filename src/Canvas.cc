@@ -88,9 +88,9 @@ NAN_METHOD(Canvas::New) {
 
   Backend* backend = NULL;
   if (info[0]->IsNumber()) {
-    int width = Nan::To<uint32_t>(info[0]).FromMaybe(0), height = 0;
+    double width = Nan::To<double>(info[0]).FromMaybe(0), height = 0;
 
-    if (info[1]->IsNumber()) height = Nan::To<uint32_t>(info[1]).FromMaybe(0);
+    if (info[1]->IsNumber()) height = Nan::To<double>(info[1]).FromMaybe(0);
 
     if (info[2]->IsString()) {
       if (0 == strcmp("pdf", *Nan::Utf8String(info[2])))
@@ -162,7 +162,7 @@ NAN_GETTER(Canvas::GetWidth) {
 NAN_SETTER(Canvas::SetWidth) {
   if (value->IsNumber()) {
     Canvas *canvas = Nan::ObjectWrap::Unwrap<Canvas>(info.This());
-    canvas->backend()->setWidth(Nan::To<uint32_t>(value).FromMaybe(0));
+    canvas->backend()->setWidth(Nan::To<double>(value).FromMaybe(0));
     canvas->resurface(info.This());
   }
 }
@@ -183,7 +183,7 @@ NAN_GETTER(Canvas::GetHeight) {
 NAN_SETTER(Canvas::SetHeight) {
   if (value->IsNumber()) {
     Canvas *canvas = Nan::ObjectWrap::Unwrap<Canvas>(info.This());
-    canvas->backend()->setHeight(Nan::To<uint32_t>(value).FromMaybe(0));
+    canvas->backend()->setHeight(Nan::To<double>(value).FromMaybe(0));
     canvas->resurface(info.This());
   }
 }
