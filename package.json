@@ -1,7 +1,7 @@
 {
   "name": "@tweak-org/canvas",
   "description": "Canvas graphics API backed by Cairo",
-  "version": "2.1.0-tweak.3",
+  "version": "2.1.0-tweak.4",
   "author": "TJ Holowaychuk <tj@learnboost.com>",
   "main": "index.js",
   "browser": "browser.js",
@@ -35,8 +35,8 @@
     "module_name": "canvas-prebuilt",
     "module_path": "build/Release",
     "host": "https://github.com/node-gfx/node-canvas-prebuilt/releases/download/",
-    "remote_path": "v{version}",
-    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{libc}-{arch}.tar.gz"
+    "remote_path": "v2.1.0",
+    "package_name": "{module_name}-v2.1.0-{node_abi}-{platform}-{libc}-{arch}.tar.gz"
   },
   "dependencies": {
     "nan": "^2.11.1",
